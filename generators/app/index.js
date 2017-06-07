@@ -7,7 +7,7 @@ module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the pioneering ' + chalk.red('generator-voogie-react') + ' generator!'
+      'Wuzzup! Lets start tuning ' + chalk.red('voogie-react') + ' generator!'
     ));
 
     const prompts = [{
@@ -15,11 +15,18 @@ module.exports = class extends Generator {
       name: 'someAnswer',
       message: 'Would you like to enable this option?',
       default: true
+    },
+    {
+      type: 'input',
+      name: 'bport',
+      message: 'Please say something ' + chalk.bgCyan('cool'),
+      default: '8888'
     }];
 
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       this.props = props;
+      this.log('cool stuff: ', this.props.bport);
     });
   }
 
